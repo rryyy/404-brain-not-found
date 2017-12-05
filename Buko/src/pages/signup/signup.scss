@@ -1,0 +1,17 @@
+page-signup {
+	// .content {
+	// 	height: 100%;
+	// }
+	.header {
+		background-color: color($colors, BuKo, base);
+	}
+	.bottom {
+		// position: absolute;
+		top: 20%;
+	}
+	.center {
+		left: 10%;
+		width: 80%;
+	}
+}
+$text-input-md-background-color: BuKo;

@@ -4,28 +4,17 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>GetStarted</ion-title>
-  </ion-navbar>
-
-</ion-header> -->
-
-
-<ion-content padding no-bounce>	
+<ion-content padding class="content" no-bounce>	
 		<ion-grid>
-			<img class="emblem_image" src="../assets/imgs/buko_logo.png">
+			<img class="emblem_image" src="../assets/imgs/buko_logo_fff.png">
 			<ion-row>
 				<div class="title">
 					It's Kinda Like Facebook for your Commuting Experience!
 				</div>
 			</ion-row>
-			<button ion-button color="BuKo" full round>Get Started</button>
+			<button ion-button color="space" full round><span class="getS">Get Started</span></button>
 			<div class="SignIn">
-				Have an account already?
-				<button class="log" ion-button color="BuKo" clear>Sign in</button>	
-			</div>
-			
+				Have an account already?<span class="log" (click)="SignUpPage();">&nbsp;Sign in</span>
+			</div>	
 		</ion-grid>
 </ion-content>
