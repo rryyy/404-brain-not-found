@@ -1,5 +1,8 @@
-page-signup {
- 	.header {
+page-signin {
+	// .content {
+	// 	height: 100%;
+	// }
+	.header {
 		background-color: color($colors, BuKo, base);
 	}
 	.bottom {
@@ -9,6 +12,5 @@ page-signup {
 	.center {
 		left: 10%;
 		width: 80%;
-		margin-bottom: 15px;
 	}
 }

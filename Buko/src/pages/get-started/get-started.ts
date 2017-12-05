@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SigninPage } from '../signin/signin';
 import { SignupPage } from '../signup/signup';
 
 /**
@@ -17,12 +18,16 @@ import { SignupPage } from '../signup/signup';
 export class GetStartedPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+ 
+  }
+   SignInPage() {
+      this.navCtrl.push(SigninPage);
+  }
+  GetStarted() {
+    this.navCtrl.push(SignupPage);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GetStartedPage');
-  }
-  SignUpPage() : void {
-  		this.navCtrl.push(SignupPage);
   }
 }
