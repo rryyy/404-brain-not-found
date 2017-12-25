@@ -1,17 +1,87 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar color="BuKo">
+        <ion-buttons left>
+            <button ion-button icon-only>
+               <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+            </button>
+        </ion-buttons>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+        <ion-buttons end><!--         missing in put for search -->
+            <button ion-button icon-only>
+                <ion-icon ios="ios-search" md="md-search"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+            <button ion-button outline round (click)="Dashboard();" color="dark" style="width: 100%">
+                What's your experience?
+            </button>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="../assets/imgs/buko_logo_00b1b2.png">
+            </ion-avatar>
+                <h2>Jejoshua Pasol</h2>
+                <p>November 5, 1955</p>
+              <ion-note>
+                  11h ago
+              </ion-note>
+        </ion-item>
+            <img src="../assets/imgs/buko_logo_00b1b2.png">
+          <ion-card-content>
+              <p>
+                  Thumbs kay kuyang driver ng brown na jeep hnd buhaya sa pasahero. 
+              </p>
+          </ion-card-content>
+          <ion-row>
+                 <ion-col>
+                      <ion-icon class="react" ios="ios-eye" md="md-eye"></ion-icon>
+                      <span>Watch</span>
+                </ion-col>
+                <ion-col>
+                      <ion-icon class="react" name="ios-chatbubbles"></ion-icon>
+                      <span>Comment</span>
+                </ion-col>
+                <ion-col>
+                      <ion-icon class="react" ios="ios-share" md="md-share"></ion-icon>
+                      <span>12 Share</span>
+                </ion-col>
+          </ion-row>
+    </ion-card>
+        <ion-card>
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="../assets/imgs/buko_logo_00b1b2.png">
+            </ion-avatar>
+                <h2>Jejoshua Pasol</h2>
+                <p>November 5, 1955</p>
+              <ion-note>
+                  11h ago
+              </ion-note>
+        </ion-item>
+          <ion-card-content>
+              <p>
+                  Thumbs kay kuyang driver ng brown na jeep hnd buhaya sa pasahero. 
+              </p>
+          </ion-card-content>
+            <ion-row>
+                 <ion-col>
+                      <ion-icon class="react" ios="ios-eye" md="md-eye"></ion-icon>
+                      <span>Watch</span>
+                </ion-col>
+                <ion-col>
+                      <ion-icon class="react" name="ios-chatbubbles"></ion-icon>
+                      <span>Comment</span>
+                </ion-col>
+                <ion-col>
+                      <ion-icon class="react" ios="ios-share" md="md-share"></ion-icon>
+                      <span>12 Share</span>
+                </ion-col>
+              </ion-row>
+    </ion-card>
 </ion-content>

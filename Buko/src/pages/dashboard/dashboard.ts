@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GetStartedPage } from '../get-started/get-started';
 
 /**
- * Generated class for the SignupPage page.
+ * Generated class for the DashboardPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,17 +10,16 @@ import { GetStartedPage } from '../get-started/get-started';
 
 @IonicPage()
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html',
+  selector: 'page-dashboard',
+  templateUrl: 'dashboard.html',
 })
-export class SignupPage {
+export class DashboardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
+    console.log('ionViewDidLoad DashboardPage');
   }
-  getBack() {
-  	this.navCtrl.push(GetStartedPage);
-  }
+
 }

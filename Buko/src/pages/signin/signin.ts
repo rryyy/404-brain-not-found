@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
+import { DashboardPage } from '../dashboard/dashboard';
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the SigninPage page.
  *
@@ -19,6 +21,12 @@ export class SigninPage {
   }
   GetStarted() {
     this.navCtrl.push(SignupPage);
+  }
+   Dashboard() {
+    this.navCtrl.push(DashboardPage);
+  }
+  TabPage() {
+    this.navCtrl.push(TabsPage);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SigninPage');
