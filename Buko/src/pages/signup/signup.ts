@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GetStartedPage } from '../get-started/get-started';
 
 /**
  * Generated class for the SignupPage page.
@@ -21,7 +20,5 @@ export class SignupPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
   }
-  getBack() {
-  	this.navCtrl.push(GetStartedPage);
-  }
+
 }

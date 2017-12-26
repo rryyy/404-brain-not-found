@@ -1,6 +1,6 @@
 {
   "name": "Buko",
-  "app_id": "3cb5f40f",
+  "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
