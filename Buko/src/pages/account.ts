@@ -1,4 +1,4 @@
 export class Account {
-    userN: string;
+    username: string;
     password: string;
 }

@@ -14,19 +14,16 @@
 				<ion-list>
 					  <ion-item>
 					    	<ion-label floating>Username</ion-label>
-					    	<ion-input class="input" type="text" [(ngModel)]="log.userN" name="userN" clearInput></ion-input>
+					    	<ion-input class="input" type="text" [(ngModel)]="log.username" [ngModelOptions]="{standalone: true}" clearInput></ion-input>
 					  </ion-item>
 					  <ion-item>
 					    	<ion-label floating>Password</ion-label>
 					    	<ion-input class="input" type="password" [(ngModel)]="log.password" [ngModelOptions]="{standalone: true}" clearInput></ion-input>
 					  </ion-item>
 				</ion-list>
-<<<<<<< HEAD
 						<button ion-button color="BuKo" type="submit" class="center" full round>Sign In</button>
 			</form>
-=======
-						<button ion-button class="center" color="BuKo" full round>Sign In</button>
->>>>>>> 67fd3926a1ea1e29d96366046a801dc589cf1eec
+						<button ion-button class="center" color="BuKo" (click)="SignupPage();" full round>Sign Up</button>
 					<ion-grid>
 						<ion-col>
 								<hr>

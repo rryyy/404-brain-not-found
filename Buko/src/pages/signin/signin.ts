@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { AlertController } from 'ionic-angular';
 
 import { SignupPage } from '../signup/signup';
-<<<<<<< HEAD
-import { DashboardPage } from '../dashboard/dashboard';
 import { TabsPage } from '../tabs/tabs';
 
 import { SigninProvider } from '../../providers/signin/signin';
 import { Account } from '../account';
-=======
->>>>>>> 67fd3926a1ea1e29d96366046a801dc589cf1eec
 /**
  * Generated class for the SigninPage page.
  *
@@ -29,15 +26,16 @@ export class SigninPage {
       public navCtrl: NavController, 
       public navParams: NavParams, 
       private http: Http,
-      private SigninProvider: SigninProvider
+      private SigninProvider: SigninProvider,
+      public alertCtrl: AlertController
       ) {
   }
   profiles: any;
-  GetStarted() {
+  SignupPage() {
     this.navCtrl.push(SignupPage);
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SigninPage');
+  TabsPage() {
+    this.navCtrl.push(TabsPage);
   }
   // tryapiShow() {
   //   this.SigninProvider
@@ -53,9 +51,21 @@ export class SigninPage {
           this.SigninProvider
               .SignInAccount(this.log)
               .subscribe(response => {
-                    console.log(response);
+                if (response.length == 0) {
+                  this.showErrorLogin();
+                } else {
+                   this.TabsPage();            
+                }
           })
-            console.log(this.log)
       }
+   showErrorLogin() 
+   {
+     let alert = this.alertCtrl.create({
+       title: 'Somethings Wrong',
+       subTitle: 'Incorrect password or username!',
+       buttons: ['OK']
+     });
+     alert.present();
+   }
 
 }
