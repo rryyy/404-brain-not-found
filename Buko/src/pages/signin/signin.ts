@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Http } from '@angular/http';
+
 import { SignupPage } from '../signup/signup';
 import { DashboardPage } from '../dashboard/dashboard';
 import { TabsPage } from '../tabs/tabs';
+
+import { SigninProvider } from '../../providers/signin/signin';
+import { Account } from '../account';
 /**
  * Generated class for the SigninPage page.
  *
@@ -15,10 +20,16 @@ import { TabsPage } from '../tabs/tabs';
   selector: 'page-signin',
   templateUrl: 'signin.html',
 })
-export class SigninPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+export class SigninPage {
+  constructor(
+      public navCtrl: NavController, 
+      public navParams: NavParams, 
+      private http: Http,
+      private SigninProvider: SigninProvider
+      ) {
   }
+  profiles: any;
   GetStarted() {
     this.navCtrl.push(SignupPage);
   }
@@ -31,5 +42,23 @@ export class SigninPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SigninPage');
   }
+  // tryapiShow() {
+  //   this.SigninProvider
+  //     .showAllData()
+  //     .subscribe(profiles => {
+  //       this.profiles = profiles;
+  //       console.log(this.profiles);
+  //     })
+  //   // console.log(this.log)
+  // }
+     log = new Account();
+      SignIn() {
+          this.SigninProvider
+              .SignInAccount(this.log)
+              .subscribe(response => {
+                    console.log(response);
+          })
+            console.log(this.log)
+      }
 
 }

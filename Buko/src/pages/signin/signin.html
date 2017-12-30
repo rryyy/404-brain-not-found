@@ -8,19 +8,21 @@
 <ion-content no-bounce>
 	<div class="content">
 		<div class="header">
-			<img class="emblem_image" src="../assets/imgs/buko_logo_fff.png">
+			<img class="emblem_image" src="assets/imgs/buko_logo_fff.png">
 		</div>
+			<form (ngSubmit)="SignIn()">
 				<ion-list>
 					  <ion-item>
 					    	<ion-label floating>Username</ion-label>
-					    	<ion-input class="input" type="text" clearInput></ion-input>
+					    	<ion-input class="input" type="text" [(ngModel)]="log.userN" name="userN" clearInput></ion-input>
 					  </ion-item>
 					  <ion-item>
 					    	<ion-label floating>Password</ion-label>
-					    	<ion-input class="input" type="password" clearInput></ion-input>
+					    	<ion-input class="input" type="password" [(ngModel)]="log.password" [ngModelOptions]="{standalone: true}" clearInput></ion-input>
 					  </ion-item>
 				</ion-list>
-						<button ion-button color="BuKo" (click)="TabPage();" class="center" full round>Sign In</button>
+						<button ion-button color="BuKo" type="submit" class="center" full round>Sign In</button>
+			</form>
 					<ion-grid>
 						<ion-col>
 								<hr>
@@ -42,7 +44,6 @@
 						 		</ion-row>
 						 	</ion-col>
 					</ion-grid>			
-
 		</div>					
 </ion-content>
 
