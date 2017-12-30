@@ -3,11 +3,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 
 import { SignupPage } from '../signup/signup';
+<<<<<<< HEAD
 import { DashboardPage } from '../dashboard/dashboard';
 import { TabsPage } from '../tabs/tabs';
 
 import { SigninProvider } from '../../providers/signin/signin';
 import { Account } from '../account';
+=======
+>>>>>>> 67fd3926a1ea1e29d96366046a801dc589cf1eec
 /**
  * Generated class for the SigninPage page.
  *
@@ -32,12 +35,6 @@ export class SigninPage {
   profiles: any;
   GetStarted() {
     this.navCtrl.push(SignupPage);
-  }
-   Dashboard() {
-    this.navCtrl.push(DashboardPage);
-  }
-  TabPage() {
-    this.navCtrl.push(TabsPage);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SigninPage');
