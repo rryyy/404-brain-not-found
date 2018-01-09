@@ -1,0 +1,32 @@
+page-post {
+	.rideicon
+	{
+		width: 7%;
+		height: 7%;
+	}
+	.dark
+	{
+		color: #797979;
+	}
+	.post-textarea
+	{
+     	width: 100%;
+		height: 150px;
+		margin: auto;
+		margin-top: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		border: solid 1px #FFF;
+	}
+	.icon_close
+	{
+		font-size: 25px;
+		color: color($colors, BuKo, base);
+		background-color: transparent;
+	}
+	.hide
+	{
+		display: none;
+		visibility: hidden;
+	}
+}

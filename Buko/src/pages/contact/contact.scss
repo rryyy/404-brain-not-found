@@ -1,3 +1,10 @@
 page-contact {
-
+	.icon
+	{
+		font-size: 30px;
+	}
+	.danger
+	{
+		color: color($colors, danger, base);
+	}
 }

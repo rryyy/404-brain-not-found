@@ -1,17 +1,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Profile
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+<ion-list>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      <ion-avatar item-start>
+        <img src="assets/imgs/generic-avatar.png">
+      </ion-avatar>
+      {{ name }}
+      <!-- <button ion-button outline item-end>View</button> -->
     </ion-item>
-  </ion-list>
+    <button ion-item>
+      <ion-icon class="icon" ios="ios-contact" md="md-contact"></ion-icon>
+      &nbsp; &nbsp;{{ contact }}
+    </button>
+    <button ion-item>
+      <ion-icon ios="ios-map" md="md-map"></ion-icon>
+      &nbsp; &nbsp;{{ location }}
+    </button>
+    <ion-item class="danger">
+        SIGN OUT
+    </ion-item>
+</ion-list>
 </ion-content>

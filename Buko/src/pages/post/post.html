@@ -1,0 +1,66 @@
+<!--
+  Generated template for the PostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton>
+		   <ion-buttons left>
+		  		<button class="icon_close" (click)="HomePage()">
+		  			<ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+		  		</button>
+  			</ion-buttons>
+		   <ion-buttons end>
+		  		<button class="icon_close" (click)="Post()">
+		  			<ion-icon ios="ios-send" md="md-send"></ion-icon>
+		  		</button>
+  			</ion-buttons>
+    <ion-title>Create Post</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form>
+      <ion-item>
+	       <ion-avatar item-start>
+	           <img src="assets/imgs/generic-avatar.png">
+	       </ion-avatar>
+	       <ion-row>
+	            <h2>{{ name }}</h2>&nbsp;
+	            <img class="rideicon" src="assets/icon/{{ car }}.png">&nbsp;
+	            <h2>is posting about</h2>&nbsp;<h2>{{ car }}</h2>
+    			
+	       </ion-row>
+	<!--        <ion-item *ngIf="hide">
+	       <ion-input type="text" [(ngModel)]="post.name" [ngModelOptions]="{standalone: true}" value="{{ name }}"></ion-input>
+	       <ion-input type="text" [(ngModel)]="post.car" [ngModelOptions]="{standalone: true}" value="{{ car }}"></ion-input>
+	       <ion-input type="text" [(ngModel)]="post.location" [ngModelOptions]="{standalone: true}" value="Olongapo, Zambales"></ion-input>
+	       <ion-input type="text" [(ngModel)]="post.feeling" [ngModelOptions]="{standalone: true}" value="{{ feel }}"></ion-input>
+	   		</ion-item> -->
+	       <ion-row>
+		        <img class="rideicon" src="assets/icon/location.png">
+		        <h6>Olongapo, Zambales</h6>
+	       </ion-row>
+	       <ion-row *ngIf="feel">
+				<h6 *ngIf="feel">Feeling {{ feel }}</h6>&nbsp;
+	             <img *ngIf="feel" class="rideicon" src="assets/icon/feeling/{{ feel }}.png">
+	       </ion-row>      
+      </ion-item>
+      <textarea class="post-textarea" type="text" [(ngModel)]="post.content" [ngModelOptions]="{standalone: true}" placeholder="How's your commuting experience?"></textarea>
+      <hr>
+      	</form>
+    <ion-item (click)="FeelingModal()">
+	 	<ion-avatar item-left>
+	    	<ion-img src="assets/imgs/feeling.png"></ion-img>
+	    </ion-avatar>
+	      	<h4>Feeling</h4>
+	</ion-item>
+     <ion-item (click)="FeelingModal()">
+	 	<ion-avatar item-left>
+	    	<ion-img src="assets/imgs/feeling.png"></ion-img>
+	    </ion-avatar>
+	      	<h4>Photos/Image</h4>
+	</ion-item>
+
+</ion-content>

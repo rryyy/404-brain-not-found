@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+<!-- 	  	<ion-buttons end>
+	  		<button ion-button icon-only (click)="Settings()">
+	  			<ion-icon name="contact" color="danger"></ion-icon>
+	  		</button>
+	  	</ion-buttons> -->
+    <ion-title>
+      Dashboard
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<p>What kind of public vehicle did you ride in?</p>
+	<ion-grid>
+		<ion-row >
+			<ion-col>
+				<div class="square-box" id="square-heart" (click)="PostPage('bus');">
+    				<div class='square-content'><ion-img class="square-design" src="assets/imgs/BUS.png"></ion-img></div>
+				</div>
+			</ion-col>
+
+			<ion-col>
+			 	<div class="square-box" id="square-activity" (click)="PostPage('jeep');">
+    				<div class='square-content'><ion-img class="square-design" src="assets/imgs/JEEPNEY.png"></ion-img></div>
+				</div>
+			</ion-col>
+		</ion-row>
+				<ion-row >
+			<ion-col>
+				<div class="square-box" id="square-pedo" (click)="PostPage('taxi');">
+    				<div class='square-content'><ion-img class="square-design" src="assets/imgs/TAXI.png"></ion-img></div>
+				</div>
+			</ion-col>
+
+			<ion-col>
+			 	<div class="square-box" id="square-weather" (click)="PostPage('train');">
+    				<div class='square-content'><ion-img class="square-design" src="assets/imgs/TRAIN.png"></ion-img></div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	 <ion-item (click)="PostPage('uber');">
+	 	<ion-avatar item-left>
+	 		<ion-img class="square-design" src="assets/imgs/uber.png"></ion-img>
+	 	</ion-avatar>
+	      		<h4>Uber</h4>
+	 </ion-item>
+
+	 <ion-item (click)="PostPage('grab');">
+	 	<ion-avatar item-left>
+	 		<ion-img class="square-design" src="assets/imgs/grab.png"></ion-img>
+	 	</ion-avatar>
+	      		<h4>Grab</h4>
+	 </ion-item>
+
+	<ion-item (click)="PostPage('tricycle')">
+	  	<ion-avatar item-left>
+	    	<ion-img class="square-design" src="assets/imgs/tricycle.png"></ion-img>
+	    </ion-avatar>
+	      		<h4>Tricycle</h4>
+	</ion-item>
+</ion-content>

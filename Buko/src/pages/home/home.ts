@@ -1,14 +1,68 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import { Geolocation } from '@ionic-native/geolocation';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+import { AlertController } from 'ionic-angular';
+
+import { DashboardPage } from '../dashboard/dashboard';
+
+import { PostsProvider } from '../../providers/posts/posts';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController) {
+	lat: any;
+	lang: any;
+	x: number;
+	y: number;
+	z: any;
+  posts: any;
+  constructor(
+  	public navCtrl: NavController,
+  	private geolocation: Geolocation,
+  	private nativeGeocoder: NativeGeocoder,
+  	public alertCtrl: AlertController,
+     private PostsProvider: PostsProvider,
+     public navParams: NavParams, 
+  	) {
 
   }
-
+   ionViewDidLoad() {
+  	this.Locate();  
+    this.GetPosts();
+  }
+  Dashboard()
+  {
+    this.navCtrl.push(DashboardPage);
+  }
+  Locate()
+  {
+  	this.geolocation.getCurrentPosition().then((resp) => {
+		 console.log(resp.coords.latitude,resp.coords.longitude);
+		 this.x = resp.coords.latitude;
+		 this.y = resp.coords.longitude;
+		 this.ReverseGeocode(resp.coords.latitude,resp.coords.longitude);
+	}).catch((error) => {
+  			console.log('Error getting location', error);
+	});
+  }
+  ReverseGeocode(lat, long)
+  {
+  	this.nativeGeocoder.reverseGeocode(lat, long)
+ 	 .then((result: NativeGeocoderReverseResult) => 
+ 	 	this.z = JSON.stringify(result))
+ 	 .catch((error: any) => console.log(error));
+  }
+   GetPosts() {
+    this.PostsProvider
+      .showPosts()
+      .subscribe(posts => {
+        this.posts = posts;
+        console.log(this.posts);
+      })
+    // console.log(this.log)
+  }
 }

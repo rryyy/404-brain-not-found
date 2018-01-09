@@ -3,11 +3,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 
+import { Storage } from '@ionic/storage';
+
 import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
 
 import { SigninProvider } from '../../providers/signin/signin';
-import { Account } from '../account';
+import { Account } from '../export';
 /**
  * Generated class for the SigninPage page.
  *
@@ -27,10 +29,14 @@ export class SigninPage {
       public navParams: NavParams, 
       private http: Http,
       private SigninProvider: SigninProvider,
-      public alertCtrl: AlertController
+      public alertCtrl: AlertController,
+      public storage: Storage
       ) {
   }
   profiles: any;
+  userid: any;
+  useremail: any;
+  name: any;
   SignupPage() {
     this.navCtrl.push(SignupPage);
   }
@@ -54,7 +60,13 @@ export class SigninPage {
                 if (response.length == 0) {
                   this.showErrorLogin();
                 } else {
-                   this.TabsPage();            
+                  this.userid = response[0].id;
+                  this.useremail = response[0].email;
+                  this.name = response[0].name;
+                  this.storage.set('userid', this.userid);
+                  this.storage.set('email', this.useremail);
+                  this.storage.set('name', this.name);
+                  this.TabsPage();            
                 }
           })
       }

@@ -2,16 +2,61 @@
   <ion-navbar>
     <ion-title>Home</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> 
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+<!--     {{ x }}
+    {{ y }}
+    {{ z }} -->
+<ion-list>
+  <ion-card (click)="Dashboard();">
+<ion-list>
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="assets/imgs/generic-avatar.png">
+    </ion-avatar>
+    <h4>How's your commuting experience?</h4>
+  </ion-item>
+</ion-list>
+  </ion-card>
+  <hr>
+</ion-list>
+    <ion-card *ngFor="let post of posts">
+
+      <ion-item>
+       <ion-avatar item-start>
+           <img src="assets/imgs/generic-avatar.png">
+       </ion-avatar>
+          <ion-row>
+            <h2>{{ post.user.name }}</h2>&nbsp;
+            <h6 class="dark">posted about {{ post.puv }} &nbsp;</h6>
+            <img class="rideicon" src="assets/icon/{{ post.puv }}.png">
+          </ion-row>
+          <ion-row>
+            <img class="rideicon" src="assets/icon/location.png">&nbsp;
+            <h6 class="dark">{{ post.location }}</h6>&nbsp;
+            <img *ngIf="post.feeling" class="rideicon" src="assets/icon/feeling/{{ post.feeling }}.png">&nbsp;
+             <h6 class="dark" *ngIf="post.feeling">Feeling {{ post.feeling }}</h6> 
+          </ion-row>
+       <!--  <h5>{{ post.created_at }}</h5> -->
+      <!--   <h6>{{ post.location }}</h6>   -->
+      </ion-item>
+      <ion-card-content>  
+       <br>
+        <p>{{ post.post_content }}</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>Comment</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+             {{ post.created_at }}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
 </ion-content>

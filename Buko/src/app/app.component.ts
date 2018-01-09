@@ -7,6 +7,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { GetStartedPage } from '../pages/get-started/get-started';
 import { SignupPage } from '../pages/signup/signup';
 import { SigninPage } from '../pages/signin/signin';
+import { HomePage } from '../pages/home/home';
+import { PostPage } from '../pages/post/post';
 
 @Component({
   templateUrl: 'app.html'

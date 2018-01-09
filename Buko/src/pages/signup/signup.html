@@ -9,27 +9,35 @@
 		<div class="header">
 			<img class="emblem_image" src="assets/imgs/buko_logo_fff.png">
 		</div>
-			<form (ngSubmit)="RegisterUser()">
+			<form [formGroup]="registration" (ngSubmit)="RegisterUser()">
 				<ion-list>
 					  <ion-item>
 					    	<ion-label floating>Name</ion-label>
-					    	<ion-input class="input" type="text" [(ngModel)]="reg.name" [ngModelOptions]="{standalone: true}" clearInput></ion-input>
+					    	<ion-input class="input" type="text" formControlName="name" [(ngModel)]="reg.name" name="name" clearInput></ion-input>
 					  </ion-item>
 					  <ion-item>
-					    	<ion-label floating>Email Address</ion-label>
-					    	<ion-input class="input" type="email" [(ngModel)]="reg.email" [ngModelOptions]="{standalone: true}" clearInput></ion-input>
+					    	<ion-label floating>Contact</ion-label>
+					    	<ion-input class="input" type="text" formControlName="contact" [(ngModel)]="reg.contact" name="contact" clearInput></ion-input>
+					  </ion-item>
+					  <ion-item>
+					    	<ion-label floating>City/Province</ion-label>
+					    	<ion-input class="input" type="text" formControlName="location" [(ngModel)]="reg.location" name="location" clearInput></ion-input>
+					  </ion-item>
+					  <ion-item>
+					    	<ion-label floating>Username</ion-label>
+					    	<ion-input class="input" type="email" formControlName="username" [(ngModel)]="reg.email" name="username" clearInput></ion-input>
 					  </ion-item>
 					  <ion-item>
 					    	<ion-label floating>Password</ion-label>
-					    	<ion-input class="input" type="password" [(ngModel)]="reg.password" [ngModelOptions]="{standalone: true}" clearInput></ion-input>
+					    	<ion-input class="input" type="password" formControlName="password" [(ngModel)]="reg.password" name="password" clearInput></ion-input>
 					  </ion-item>
-					  <ion-item>
+<!-- 					  <ion-item>
 					    	<ion-label floating>Re-type Password</ion-label>
 					    	<ion-input class="input" type="password" [(ngModel)]="reg.repassword" [ngModelOptions]="{standalone: true}" clearInput></ion-input>
-					  </ion-item>
+					  </ion-item> -->
 				</ion-list>
-						<button ion-button class="center" color="BuKo" type="submit" full round>Sign Up</button>
+						<button ion-button class="center" color="BuKo" type="submit" [disabled]="!registration.valid" full round>Sign Up</button>
 				</form>
-						<button ion-button class="center" color="BuKo" full round>Back</button>
+						<button ion-button class="center" color="BuKo" (click)="SignIn()" full round>Back</button>
 		</div>		
 </ion-content>
