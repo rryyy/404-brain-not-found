@@ -26,17 +26,22 @@ export class FeelingPage {
   	public storage: Storage
   	) {
   }	
+  cartype: any;
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FeelingPage');
+    this.cartype = this.navParams.get('cartype');
   }
-  onDismiss()
+  onFeel(feeling,rate) 
   {
-  	this.navCtrl.push(PostPage);
+  	this.navCtrl.push(PostPage, {
+      feeling: feeling,
+      rate: rate,
+      cartype: this.cartype
+    });
     // this.viewCtrl.dismiss();
   }
-  onFeel(feeling) 
-  {
-  	this.storage.set('feel', feeling);
-  	this.onDismiss();
-  }
+  // onFeel(feeling) 
+  // {
+  // 	this.storage.set('feel', feeling);
+  // 	this.onDismiss();
+  // }
 }

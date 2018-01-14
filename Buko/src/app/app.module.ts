@@ -14,6 +14,8 @@ import { SigninPage } from '../pages/signin/signin';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { PostPage } from '../pages/post/post';
 import { FeelingPage } from '../pages/feeling/feeling';
+import { CommentPage } from '../pages/comment/comment';
+import { WritecommentPage } from '../pages/writecomment/writecomment';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,6 +28,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SigninProvider } from '../providers/signin/signin';
 import { SignupProvider } from '../providers/signup/signup';
 import { PostsProvider } from '../providers/posts/posts';
+import { AnalyticsProvider } from '../providers/analytics/analytics';
+import { CommentProvider } from '../providers/comment/comment';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { PostsProvider } from '../providers/posts/posts';
     SigninPage,
     DashboardPage,
     PostPage,
-    FeelingPage
+    FeelingPage,
+    CommentPage,
+    WritecommentPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +65,9 @@ import { PostsProvider } from '../providers/posts/posts';
     SigninPage,
     DashboardPage,
     PostPage,
-    FeelingPage
+    FeelingPage,
+    CommentPage,
+    WritecommentPage
   ],
   providers: [
     StatusBar,
@@ -70,6 +78,8 @@ import { PostsProvider } from '../providers/posts/posts';
     SigninProvider,
     SignupProvider,
     PostsProvider,
+    AnalyticsProvider,
+    CommentProvider,
   ]
 })
 export class AppModule {}

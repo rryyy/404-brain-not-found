@@ -4,7 +4,7 @@
   </ion-navbar>
 </ion-header> 
 
-<ion-content>
+<ion-content fullscreen>
 <!--     {{ x }}
     {{ y }}
     {{ z }} -->
@@ -49,7 +49,7 @@
         <ion-col>
           <button ion-button icon-left clear small>
             <ion-icon name="text"></ion-icon>
-            <div>Comment</div>
+            <div (click)="CommentPage(post.post_id)">Comment</div>
           </button>
         </ion-col>
         <ion-col center text-center>

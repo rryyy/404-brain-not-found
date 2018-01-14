@@ -28,7 +28,9 @@ export class DashboardPage {
   }
   PostPage(puv)
   {
-    this.storage.set('cartype', puv);
-    this.navCtrl.push(FeelingPage);
+    // this.storage.set('cartype', puv);
+    this.navCtrl.push(FeelingPage, {
+      cartype: puv
+    });
   }
 }

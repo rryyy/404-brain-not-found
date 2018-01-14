@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { UserId } from '../export';
 import { SigninProvider } from '../../providers/signin/signin';
+import { SigninPage } from '../signin/signin';
 
 @Component({
   selector: 'page-contact',
@@ -46,6 +47,10 @@ export class ContactPage {
         console.log(response);
         console.log(this.name, this.contact, this.location);
       })
+  }
+  Signout()
+  {
+    this.navCtrl.push(SigninPage);
   }
 
 }

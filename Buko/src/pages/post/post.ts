@@ -29,6 +29,7 @@ export class PostPage {
   hide: boolean
   car: any
   feel:any
+  rate: any
   name: any
   id: any
   location: any
@@ -50,6 +51,7 @@ export class PostPage {
     this.GetUserName();
     this.GetCarType();
     this.GetFeeling();
+    this.GetRate()
     this.GetUserId();
     this.Locate();
     this.hide = true;
@@ -57,18 +59,18 @@ export class PostPage {
   }
   GetCarType()
   {
-     this.storage.get('cartype').then((val) => {
-            this.car = val;
-            this.location = "olongapo, zambales";
-            console.log(this.car);
-    });
+    this.car = this.navParams.get('cartype');
+    console.log(this.car);
   }
   GetFeeling()
   {
-       this.storage.get('feel').then((val) => {
-              this.feel = val;
-              console.log(this.feel);
-      });
+      this.feel = this.navParams.get('feeling');
+      console.log(this.feel);
+  }
+  GetRate()
+  {
+    this.rate = this.navParams.get('rate');
+    console.log(this.rate);
   }
   GetUserName()
   {
@@ -94,7 +96,8 @@ export class PostPage {
     this.post.name = this.id;
     this.post.car = this.car;
     this.post.feeling = this.feel;
-    this.post.location = this.location;
+    this.post.rating = this.rate;
+    this.post.location = "olongapo, zambales";
     this.storage.set('cartype', null);
     this.storage.set('feel', null);
     console.log(this.post);

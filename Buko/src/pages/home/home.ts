@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { AlertController } from 'ionic-angular';
 
 import { DashboardPage } from '../dashboard/dashboard';
-
+import { CommentPage } from '../comment/comment';
+import { Storage } from '@ionic/storage';
 import { PostsProvider } from '../../providers/posts/posts';
 
 @Component({
@@ -27,6 +28,8 @@ export class HomePage {
   	public alertCtrl: AlertController,
      private PostsProvider: PostsProvider,
      public navParams: NavParams, 
+     public storage: Storage,
+     public modalCtrl: ModalController,
   	) {
 
   }
@@ -64,5 +67,11 @@ export class HomePage {
         console.log(this.posts);
       })
     // console.log(this.log)
+  }
+  CommentPage(id)
+  {
+    this.modalCtrl.create(CommentPage, {
+      postid: id
+    }).present();
   }
 }
