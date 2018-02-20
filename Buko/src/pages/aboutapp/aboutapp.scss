@@ -1,0 +1,54 @@
+page-aboutapp {
+	@media screen and (orientation:portrait) {
+		.content {
+			background-color: color($colors, BuKo, base);
+		}
+		.emblem_image {
+			padding-top: 60px;
+		}
+		.title{
+			color: color($colors, space, base);
+			padding-top: 50px;
+			padding-bottom: 50px;
+			display: block;
+			font-size: 15px !important;
+			// font-weight: bold !important
+		}
+		.SignIn {
+			position: absolute;
+			bottom: 20px;
+		}
+		.log {
+			color: color($colors, space, base);
+		}
+		.getS {
+			color: color($colors, BuKo, base);
+		}
+	}
+		@media screen and (orientation:landscape) {
+		.content {
+			background-color: color($colors, BuKo, base);
+		}
+		.emblem_image {
+			padding-top: 60px;
+		}
+		.title{
+			color: color($colors, space, base);
+			padding-top: 50px;
+			padding-bottom: 50px;
+			display: block;
+			font-size: 24px !important;
+			font-weight: bold !important
+		}
+		.SignIn {
+			position: static;
+			padding-top: 20px;
+		}
+		.log {
+			color: color($colors, space, base);
+		}
+		.getS {
+			color: color($colors, BuKo, base);
+		}
+	}
+}

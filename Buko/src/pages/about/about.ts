@@ -17,6 +17,8 @@ export class AboutPage {
     lineChart: any;
     data: any;
     response_total: any; response_bus: any; response_jeep: any; response_taxi: any; response_train: any; response_uber: any; response_grab: any; response_tric: any;
+    negative_bus: any; negative_jeep: any; negative_taxi: any; negative_train: any; negative_uber: any; negative_grab: any; negative_tricycle: any;
+    positive_bus: any; positive_jeep: any; positive_taxi: any; positive_train: any; positive_uber: any; positive_grab: any; positive_tricycle: any;
   constructor(
       public navCtrl: NavController,
       private AnalyticsProvider: AnalyticsProvider
@@ -32,6 +34,7 @@ GetAnalytics() {
       .subscribe(Response => {
         this.data = Response;
         console.log(this.data);
+        //response
         this.response_total = Response.response.responses;
         this.response_bus = Response.response.bus_responses;
         this.response_jeep = Response.response.jeepney_responses;
@@ -40,6 +43,22 @@ GetAnalytics() {
         this.response_grab = Response.response.grab_responses;
         this.response_uber = Response.response.uber_responses;
         this.response_tric = Response.response.tricycle_responses;
+        //negative feedbacks
+        this.negative_bus = Response.negative.bus;
+        this.negative_jeep = Response.negative.jeep;
+        this.negative_taxi = Response.negative.taxi;
+        this.negative_train = Response.negative.train;
+       this. negative_uber = Response.negative.uber;
+        this.negative_grab = Response.negative.grab;
+        this.negative_tricycle = Response.negative.tricycle;
+        //positive feedbacks
+        this.positive_bus = Response.positive.bus;
+        this.positive_jeep = Response.positive.jeep;
+        this.positive_taxi = Response.positive.taxi;
+        this.positive_train = Response.positive.train;
+       this. positive_uber = Response.positive.uber;
+        this.positive_grab = Response.positive.grab;
+        this.positive_tricycle = Response.positive.tricycle;
         console.log(this.response_bus,this.response_jeep,this.response_taxi,this.response_train,this.response_grab,this.response_uber,this.response_tric)
          this.Barchart();
          this.DoughnutChart();
@@ -54,7 +73,7 @@ Barchart()
             data: {
                 labels: ["bus", "jeepney", "taxi", "train", "uber", "grab", "tricycle"],
                 datasets: [{
-                    label: '# of Votes',
+                    label: '# of Respondents',
                     data: [this.response_bus, this.response_jeep, this.response_taxi, this.response_train, this.response_grab, this.response_uber, this.response_tric],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -95,8 +114,8 @@ DoughnutChart()
             data: {
                 labels: ["bus", "jeepney", "taxi", "train", "uber", "grab", "tricycle"],
                 datasets: [{
-                    label: 'Percentage of Respondents',
-                    data: [this.response_bus, this.response_jeep, this.response_taxi, this.response_train, this.response_grab, this.response_uber, this.response_tric],
+                    label: 'Negative Feedbacks',
+                    data: [this.positive_bus, this.positive_jeep, this.positive_taxi, this.positive_train, this.positive_grab, this.positive_uber, this.positive_tricycle],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -127,7 +146,7 @@ LineChart()
                 labels: ["bus", "jeepney", "taxi", "train", "uber", "grab", "tricycle"],
                 datasets: [
                     {
-                        label: "My First dataset",
+                        label: "Positive Feedbacks",
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: "rgba(75,192,192,0.4)",
@@ -145,7 +164,7 @@ LineChart()
                         pointHoverBorderWidth: 2,
                         pointRadius: 1,
                         pointHitRadius: 10,
-                        data: [this.response_bus, this.response_jeep, this.response_taxi, this.response_train, this.response_grab, this.response_uber, this.response_tric],
+                        data: [this.negative_bus, this.negative_jeep, this.negative_taxi, this.negative_train, this.negative_grab, this.negative_uber, this.negative_tricycle],
                         spanGaps: false,
                     }
                 ]

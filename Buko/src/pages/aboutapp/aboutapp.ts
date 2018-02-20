@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SigninPage } from '../signin/signin';
+
 import { SignupPage } from '../signup/signup';
-import { AboutappPage } from '../aboutapp/aboutapp';
 
 /**
- * Generated class for the GetStartedPage page.
+ * Generated class for the AboutappPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,22 +12,19 @@ import { AboutappPage } from '../aboutapp/aboutapp';
 
 @IonicPage()
 @Component({
-  selector: 'page-get-started',
-  templateUrl: 'get-started.html',
+  selector: 'page-aboutapp',
+  templateUrl: 'aboutapp.html',
 })
-export class GetStartedPage {
+export class AboutappPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
- 
-  }
-   SignInPage() {
-      this.navCtrl.push(SigninPage);
-  }
-  Aboutapp() {
-    this.navCtrl.push(AboutappPage);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GetStartedPage');
+    console.log('ionViewDidLoad AboutappPage');
   }
+  GetStarted() {
+    this.navCtrl.push(SignupPage);
+  }
+
 }

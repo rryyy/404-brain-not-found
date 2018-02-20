@@ -16,6 +16,7 @@ import { PostPage } from '../pages/post/post';
 import { FeelingPage } from '../pages/feeling/feeling';
 import { CommentPage } from '../pages/comment/comment';
 import { WritecommentPage } from '../pages/writecomment/writecomment';
+import { AboutappPage } from '../pages/aboutapp/aboutapp';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -45,7 +46,8 @@ import { CommentProvider } from '../providers/comment/comment';
     PostPage,
     FeelingPage,
     CommentPage,
-    WritecommentPage
+    WritecommentPage,
+    AboutappPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import { CommentProvider } from '../providers/comment/comment';
     PostPage,
     FeelingPage,
     CommentPage,
-    WritecommentPage
+    WritecommentPage,
+    AboutappPage
   ],
   providers: [
     StatusBar,
