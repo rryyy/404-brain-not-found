@@ -15,12 +15,14 @@ import { PostsProvider } from '../../providers/posts/posts';
   templateUrl: 'home.html'
 })
 export class HomePage {
-	lat: any;
-	lang: any;
-	x: number;
-	y: number;
-	z: any;
-  posts: any;
+	lat: any
+	lang: any
+	x: number
+	y: number
+	thoroughfare: any
+  locality: any
+  subAdministrativeArea: any
+  posts: any
   constructor(
   	public navCtrl: NavController,
   	private geolocation: Geolocation,
@@ -33,7 +35,7 @@ export class HomePage {
   	) {
 
   }
-   ionViewDidLoad() {
+  ionViewDidLoad() {
   	this.Locate();  
     this.GetPosts();
   }
@@ -48,17 +50,34 @@ export class HomePage {
 		 this.x = resp.coords.latitude;
 		 this.y = resp.coords.longitude;
 		 this.ReverseGeocode(resp.coords.latitude,resp.coords.longitude);
-	}).catch((error) => {
+	  }).catch((error) => {
   			console.log('Error getting location', error);
-	});
+	  });
   }
   ReverseGeocode(lat, long)
   {
   	this.nativeGeocoder.reverseGeocode(lat, long)
  	 .then((result: NativeGeocoderReverseResult) => 
- 	 	this.z = JSON.stringify(result))
- 	 .catch((error: any) => console.log(error));
+ 	         this.showLocation(this.thoroughfare = JSON.stringify(result.thoroughfare),
+                              this.locality = JSON.stringify(result.locality),
+                              this.subAdministrativeArea = JSON.stringify(result.subAdministrativeArea)),
+      )
+ 	 .catch((error: any) => console.log(error)); 
   }
+   showLocation(thoroughfare,locality,subAdministrativeArea) 
+   {
+     //saving to cache
+     this.storage.set('thoroughfare', thoroughfare.replace('"','').replace('"',''));
+     this.storage.set('locality', locality.replace('"','').replace('"',''));
+     this.storage.set('subAdministrativeArea', subAdministrativeArea.replace('"','').replace('"',''));
+     //creating alert
+     let alert = this.alertCtrl.create({
+       title: 'Location',
+       subTitle: "You are here in" + " " + thoroughfare.replace('"','').replace('"','') + " " + locality.replace('"','').replace('"','') +  " " + subAdministrativeArea.replace('"','').replace('"',''),  
+       buttons: ['OK']
+     });
+     alert.present();
+   }
    GetPosts() {
     this.PostsProvider
       .showPosts()

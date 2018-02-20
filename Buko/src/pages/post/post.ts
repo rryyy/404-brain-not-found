@@ -33,6 +33,9 @@ export class PostPage {
   name: any
   id: any
   location: any
+  locality: string
+  subAdministrativeArea: string
+  thoroughfare: string
   x: any
   y: any
   z:any
@@ -54,6 +57,9 @@ export class PostPage {
     this.GetRate()
     this.GetUserId();
     this.Locate();
+    this.getLocality();
+    this.getsubAdministrativeArea();
+    this.getthoroughfare();
     this.hide = true;
     
   }
@@ -86,6 +92,24 @@ export class PostPage {
               console.log(this.id);
       });    
   }
+  getLocality()
+  {
+      this.storage.get('locality').then((val) => {
+        this.locality = val + " City";
+      })
+  }
+  getsubAdministrativeArea()
+  {
+      this.storage.get('subAdministrativeArea').then((val) => {
+        this.subAdministrativeArea = val;
+      })
+  }
+  getthoroughfare()
+  {
+      this.storage.get('thoroughfare').then((val) => {
+        this.thoroughfare = val;
+      })
+  }
   FeelingModal() {
     // this.modalCtrl.create(FeelingPage).present();
     this.navCtrl.push(FeelingPage);
@@ -97,7 +121,7 @@ export class PostPage {
     this.post.car = this.car;
     this.post.feeling = this.feel;
     this.post.rating = this.rate;
-    this.post.location = "olongapo, zambales";
+    this.post.location = this.thoroughfare + " ," + this.locality + " ," + this.subAdministrativeArea;
     this.storage.set('cartype', null);
     this.storage.set('feel', null);
     console.log(this.post);
