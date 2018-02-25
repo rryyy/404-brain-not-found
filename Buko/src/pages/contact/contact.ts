@@ -50,6 +50,9 @@ export class ContactPage {
   }
   Signout()
   {
+    this.storage.set('userid', null);
+    this.storage.set('email', null);
+    this.storage.set('name', null);
     this.navCtrl.push(SigninPage);
   }
 

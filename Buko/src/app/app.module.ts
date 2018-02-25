@@ -17,20 +17,25 @@ import { FeelingPage } from '../pages/feeling/feeling';
 import { CommentPage } from '../pages/comment/comment';
 import { WritecommentPage } from '../pages/writecomment/writecomment';
 import { AboutappPage } from '../pages/aboutapp/aboutapp';
+import { MapsPage } from '../pages/maps/maps';
+import { BlankPage } from '../pages/blank/blank';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HttpModule } from '@angular/http';
+ import { HttpClientModule } from '@angular/common/http'; 
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { IonicStorageModule } from '@ionic/storage';
+import { Network } from '@ionic-native/network';
 
 import { SigninProvider } from '../providers/signin/signin';
 import { SignupProvider } from '../providers/signup/signup';
 import { PostsProvider } from '../providers/posts/posts';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { CommentProvider } from '../providers/comment/comment';
+import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
 
 @NgModule({
   declarations: [
@@ -47,11 +52,14 @@ import { CommentProvider } from '../providers/comment/comment';
     FeelingPage,
     CommentPage,
     WritecommentPage,
-    AboutappPage
+    AboutappPage,
+    MapsPage,
+    BlankPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -70,19 +78,23 @@ import { CommentProvider } from '../providers/comment/comment';
     FeelingPage,
     CommentPage,
     WritecommentPage,
-    AboutappPage
+    AboutappPage,
+    MapsPage,
+    BlankPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
     NativeGeocoder,
+    Network,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SigninProvider,
     SignupProvider,
     PostsProvider,
     AnalyticsProvider,
     CommentProvider,
+    ConnectivityServiceProvider,
   ]
 })
 export class AppModule {}

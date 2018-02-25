@@ -1,13 +1,29 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar hideBackButton>
+<!--        <ion-buttons left>
+          <button class="icon_close" (click)="HomePage()">
+            <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+          </button>
+        </ion-buttons>
+       <ion-buttons end>
+          <button class="icon_close" (click)="Post()">
+            <ion-icon ios="ios-send" md="md-send"></ion-icon>
+          </button>
+        </ion-buttons> -->
+      <ion-segment color="BuKo" [(ngModel)]="loadfirst">
+      <ion-segment-button value="nearby">
+        Nearby Posts
+      </ion-segment-button>
+      <ion-segment-button (click)="GetPosts()" value="allposts">
+        All Posts
+      </ion-segment-button>
+    </ion-segment>
+    <!-- <ion-title>Home</ion-title> -->
   </ion-navbar>
 </ion-header> 
 
-<ion-content fullscreen>
-<!--     {{ x }}
-    {{ y }}
-    {{ z }} -->
+<ion-content fullscreen (swipe)="onSwipeTry($event)">
+
 <ion-list>
   <ion-card (click)="Dashboard();">
 <ion-list>

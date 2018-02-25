@@ -15,29 +15,21 @@ import { PostsProvider } from '../../providers/posts/posts';
   templateUrl: 'home.html'
 })
 export class HomePage {
-	lat: any
-	lang: any
-	x: number
-	y: number
-	thoroughfare: any
-  locality: any
-  subAdministrativeArea: any
-  posts: any
-  constructor(
-  	public navCtrl: NavController,
-  	private geolocation: Geolocation,
-  	private nativeGeocoder: NativeGeocoder,
-  	public alertCtrl: AlertController,
-     private PostsProvider: PostsProvider,
-     public navParams: NavParams, 
-     public storage: Storage,
-     public modalCtrl: ModalController,
-  	) {
-
-  }
+	lat: any; lang: any
+	x: number; y: number
+	thoroughfare: any; locality: any
+  subAdministrativeArea: any; posts: any
+  loadfirst: any;
+  constructor (
+  	public navCtrl: NavController, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder,
+  	public alertCtrl: AlertController, private PostsProvider: PostsProvider, public navParams: NavParams, 
+    public storage: Storage, public modalCtrl: ModalController ) 
+    {
+     this.GetPosts();
+    }
   ionViewDidLoad() {
   	this.Locate();  
-    this.GetPosts();
+    // this.GetPosts();
   }
   Dashboard()
   {
@@ -78,7 +70,18 @@ export class HomePage {
      });
      alert.present();
    }
-   GetPosts() {
+  GetPosts() {
+    this.loadfirst = "allposts";
+    this.PostsProvider
+      .showPosts()
+      .subscribe(posts => {
+        this.posts = posts;
+        console.log(this.posts);
+      })
+    // console.log(this.log)
+  }
+   NearbyPosts() {
+    this.loadfirst = "nearby";
     this.PostsProvider
       .showPosts()
       .subscribe(posts => {
@@ -92,5 +95,13 @@ export class HomePage {
     this.modalCtrl.create(CommentPage, {
       postid: id
     }).present();
+  }
+  onSwipeTry(e){
+    if(e.direction == '2'){
+       this.GetPosts();
+    }
+    else if(e.direction == '4'){
+      this.NearbyPosts();
+    }
   }
 }

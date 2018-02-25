@@ -3,14 +3,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
-import { SigninPage } from '../signin/signin';
-import { SignupPage } from '../signup/signup';
-import { AboutappPage } from '../aboutapp/aboutapp';
 import { TabsPage } from '../tabs/tabs';
-
+import { GetStartedPage } from '../get-started/get-started';
 
 /**
- * Generated class for the GetStartedPage page.
+ * Generated class for the BlankPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -18,19 +15,27 @@ import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
-  selector: 'page-get-started',
-  templateUrl: 'get-started.html',
+  selector: 'page-blank',
+  templateUrl: 'blank.html',
 })
-export class GetStartedPage {
-  data: any;
+export class BlankPage {
+ data: any
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  	this.checkAccount();
   }
+
   ionViewDidLoad() {
+    console.log('ionViewDidLoad BlankPage');
   }
-  SignInPage() {
-      this.navCtrl.push(SigninPage);
-  }
-  Aboutapp() {
-    this.navCtrl.push(AboutappPage);
+  checkAccount()
+  {
+    this.storage.get('userid').then((val) => {
+	    if(val){
+	      this.navCtrl.push(TabsPage);
+	    }
+	    else{
+	      this.navCtrl.push(GetStartedPage);
+	    }
+    });
   }
 }
