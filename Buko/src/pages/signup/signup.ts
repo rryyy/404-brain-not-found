@@ -31,7 +31,6 @@ export class SignupPage {
   constructor(
       public navCtrl: NavController, 
       public navParams: NavParams, 
-      private http: Http,
       private SignupProvider: SignupProvider,
       public alertCtrl: AlertController,
       private formBuilder: FormBuilder,

@@ -27,7 +27,7 @@ export class SignupProvider {
   SignupAccount(data)
   {
      var info = JSON.stringify(data);
-     return this.http.post('http://159.203.187.1/api/signup',info, this.options).map(res=>res.json()); 
+     return this.http.post('http://192.241.140.65/api/signup',info, this.options).map(res=>res.json()); 
      // return this.http.post('http://127.0.0.1:8000/api/signup',info, this.options).map(res=>res.json());  	
   }
 }

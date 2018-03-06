@@ -16,6 +16,7 @@ export class Post {
     rating: string;
 	feeling: string;
 	content: string;
+    image: string;
 }
 export class UserId{
     id: string;
@@ -27,4 +28,7 @@ export class Comment {
     postid: string;
     userid: string;
     content: string;
+}
+export class postsLocation {
+    location: string
 }

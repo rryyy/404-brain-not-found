@@ -1,77 +1,61 @@
 <ion-header>
-  <ion-navbar hideBackButton>
-<!--        <ion-buttons left>
-          <button class="icon_close" (click)="HomePage()">
-            <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
-          </button>
-        </ion-buttons>
-       <ion-buttons end>
-          <button class="icon_close" (click)="Post()">
-            <ion-icon ios="ios-send" md="md-send"></ion-icon>
-          </button>
-        </ion-buttons> -->
-      <ion-segment color="BuKo" [(ngModel)]="loadfirst">
-      <ion-segment-button value="nearby">
-        Nearby Posts
-      </ion-segment-button>
-      <ion-segment-button (click)="GetPosts()" value="allposts">
-        All Posts
-      </ion-segment-button>
-    </ion-segment>
-    <!-- <ion-title>Home</ion-title> -->
+  <ion-navbar hideBackButton color="BuKo">
+    <ion-title>BuhayKomyuter</ion-title>
   </ion-navbar>
 </ion-header> 
 
 <ion-content fullscreen (swipe)="onSwipeTry($event)">
-
+  <ion-segment color="BuKo" [(ngModel)]="loadfirst">
+    <ion-segment-button (click)="NearbyPosts()" value="nearby">
+        Nearby Posts
+    </ion-segment-button>
+    <ion-segment-button (click)="GetPosts()" value="allposts">
+        All Posts
+    </ion-segment-button>
+  </ion-segment>
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
 <ion-list>
   <ion-card (click)="Dashboard();">
-<ion-list>
-  <ion-item>
-    <ion-avatar item-start>
-      <img src="assets/imgs/generic-avatar.png">
-    </ion-avatar>
-    <h4>How's your commuting experience?</h4>
-  </ion-item>
-</ion-list>
+    <ion-list>
+       <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/imgs/generic-avatar.png">
+          </ion-avatar>
+            <h4>How's your commuting experience?</h4>
+        </ion-item>
+    </ion-list>
   </ion-card>
   <hr>
 </ion-list>
     <ion-card *ngFor="let post of posts">
-
       <ion-item>
        <ion-avatar item-start>
            <img src="assets/imgs/generic-avatar.png">
        </ion-avatar>
-          <ion-row>
-            <h2>{{ post.user.name }}</h2>&nbsp;
-            <h6 class="dark">posted about {{ post.puv }} &nbsp;</h6>
-            <img class="rideicon" src="assets/icon/{{ post.puv }}.png">
-          </ion-row>
-          <ion-row>
-            <img class="rideicon" src="assets/icon/location.png">&nbsp;
-            <h6 class="dark">{{ post.location }}</h6>&nbsp;
-            <img *ngIf="post.feeling" class="rideicon" src="assets/icon/feeling/{{ post.feeling }}.png">&nbsp;
-             <h6 class="dark" *ngIf="post.feeling">Feeling {{ post.feeling }}</h6> 
-          </ion-row>
-       <!--  <h5>{{ post.created_at }}</h5> -->
-      <!--   <h6>{{ post.location }}</h6>   -->
+            <h2>{{ post.user.name }}</h2>
+            <p> {{ post.created_at | moment }} </p>
       </ion-item>
+      <ion-row class="info">
+        <p>posted about {{ post.puv }}</p>&nbsp;
+        <img class="rideicon" src="assets/icon/{{ post.puv }}.png">
+        <p>{{ post.location }}</p>&nbsp;
+        <img class="rideicon" src="assets/icon/location.png">
+        <p *ngIf="post.feeling">Feeling {{ post.feeling }}</p>&nbsp;
+        <img *ngIf="post.feeling" class="rideicon" src="assets/icon/feeling/{{ post.feeling }}.png"> 
+       </ion-row>
+       <br> 
+      <img [src]="post.image" *ngIf="post.image"/>
       <ion-card-content>  
-       <br>
         <p>{{ post.post_content }}</p>
       </ion-card-content>
       <ion-row>
         <ion-col>
-          <button ion-button icon-left clear small>
+          <button class="buko" (click)="CommentPage(post.post_id)" ion-button icon-left clear medium>
             <ion-icon name="text"></ion-icon>
-            <div (click)="CommentPage(post.post_id)">Comment</div>
           </button>
-        </ion-col>
-        <ion-col center text-center>
-          <ion-note>
-             {{ post.created_at }}
-          </ion-note>
         </ion-col>
       </ion-row>
     </ion-card>

@@ -28,13 +28,13 @@ export class SigninProvider {
   SignInAccount(data)
   {
      var info = JSON.stringify(data);
-     return this.http.post('http://159.203.187.1/api/signin',info, this.options).map(res=>res.json());
+     return this.http.post('http://192.241.140.65/api/signin',info, this.options).map(res=>res.json());
      // return this.http.post('http://127.0.0.1:8000/api/signin',info, this.options).map(res=>res.json());
   }
   GetAccount(data)
   {
      var info = JSON.stringify(data);
-     return this.http.post('http://159.203.187.1/api/profile',info, this.options).map(res=>res.json());
+     return this.http.post('http://192.241.140.65/api/profile',info, this.options).map(res=>res.json());
      // return this.http.post('http://127.0.0.1:8000/api/profile',info, this.options).map(res=>res.json());
   }
 }

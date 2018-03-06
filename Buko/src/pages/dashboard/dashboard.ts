@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 import { Storage } from '@ionic/storage';
 
 import { PostPage } from '../post/post';
 import { FeelingPage } from '../feeling/feeling';
+
+
 /**
  * Generated class for the DashboardPage page.
  *

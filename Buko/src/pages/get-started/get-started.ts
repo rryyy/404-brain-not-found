@@ -4,9 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { SigninPage } from '../signin/signin';
-import { SignupPage } from '../signup/signup';
+// import { SignupPage } from '../signup/signup';
 import { AboutappPage } from '../aboutapp/aboutapp';
-import { TabsPage } from '../tabs/tabs';
 
 
 /**

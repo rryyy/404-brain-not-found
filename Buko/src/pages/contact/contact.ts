@@ -1,24 +1,28 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { App } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 import { UserId } from '../export';
 import { SigninProvider } from '../../providers/signin/signin';
 import { SigninPage } from '../signin/signin';
+import { BlankPage } from '../blank/blank';
 
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
 })
 export class ContactPage {
- id: any
- name: any
- contact: any
- location: any
+   rootPage:any = BlankPage;
+   id: any
+   name: any
+   contact: any
+   location: any
   constructor(
   	public navCtrl: NavController,
   	private storage: Storage,
- 	private SigninProvider: SigninProvider
+ 	  private SigninProvider: SigninProvider,
+    public app: App
   	) {
 
   }
@@ -53,7 +57,7 @@ export class ContactPage {
     this.storage.set('userid', null);
     this.storage.set('email', null);
     this.storage.set('name', null);
-    this.navCtrl.push(SigninPage);
+    this.app.getRootNav().setRoot(BlankPage);
   }
 
 }

@@ -2,6 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Chart } from 'chart.js';
 
+import { RespondentsPage } from '../respondents/respondents';
+import { FeedbackSortPage } from '../feedback-sort/feedback-sort';
+import { FeedbacknegaPage } from '../feedbacknega/feedbacknega';
+
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 @Component({
@@ -25,7 +29,8 @@ export class AboutPage {
       ) {
 
   }
-   ionViewDidLoad() {
+ionViewDidLoad() 
+{
        this.GetAnalytics();
 }
 GetAnalytics() {
@@ -106,7 +111,7 @@ Barchart()
  
         });
 }
-//doughnut chart ends here
+//doughnut chart starts here
 DoughnutChart()
 {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
@@ -114,7 +119,7 @@ DoughnutChart()
             data: {
                 labels: ["bus", "jeepney", "taxi", "train", "uber", "grab", "tricycle"],
                 datasets: [{
-                    label: 'Negative Feedbacks',
+                    label: 'Positive Feedbacks',
                     data: [this.positive_bus, this.positive_jeep, this.positive_taxi, this.positive_train, this.positive_grab, this.positive_uber, this.positive_tricycle],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -146,7 +151,7 @@ LineChart()
                 labels: ["bus", "jeepney", "taxi", "train", "uber", "grab", "tricycle"],
                 datasets: [
                     {
-                        label: "Positive Feedbacks",
+                        label: "Negative Feedbacks",
                         fill: false,
                         lineTension: 0.1,
                         backgroundColor: "rgba(75,192,192,0.4)",
@@ -173,4 +178,16 @@ LineChart()
         });
 }
 //line chart ends here -->
+RespondentsPage()
+{
+    this.navCtrl.push(RespondentsPage);
+}
+FeedbackSort()
+{
+    this.navCtrl.push(FeedbackSortPage);
+}
+FeedbackNega()
+{
+    this.navCtrl.push(FeedbacknegaPage);
+}
 }

@@ -5,7 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar hideBackButton>
+  <ion-navbar hideBackButton color="BuKo">
 		   <ion-buttons left>
 		  		<button class="icon_close" (click)="HomePage()">
 		  			<ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
@@ -49,18 +49,22 @@
       </ion-item>
       <textarea class="post-textarea" type="text" [(ngModel)]="post.content" [ngModelOptions]="{standalone: true}" placeholder="How's your commuting experience?"></textarea>
       <hr>
-      	</form>
-    <ion-item (click)="FeelingModal()">
+    </form>
+    <ion-card *ngIf="image">
+    	<ion-card-content>
+    		<img [src]="base64Image"/>
+    	</ion-card-content>
+    </ion-card>
+    <ion-item (click)="accessCamera()">
 	 	<ion-avatar item-left>
 	    	<ion-img src="assets/imgs/feeling.png"></ion-img>
 	    </ion-avatar>
-	      	<h4>Feeling</h4>
+	      	<h4>Camera</h4>
 	</ion-item>
-     <ion-item (click)="FeelingModal()">
+     <ion-item (click)="accessGallery()">
 	 	<ion-avatar item-left>
 	    	<ion-img src="assets/imgs/feeling.png"></ion-img>
 	    </ion-avatar>
 	      	<h4>Photos/Image</h4>
 	</ion-item>
-
 </ion-content>

@@ -24,13 +24,18 @@ export class PostsProvider {
   }
   showPosts() 
   {
-  	return this.http.get('http://159.203.187.1/api/posts').map(res=>res.json());
+  	return this.http.get('http://192.241.140.65/api/posts').map(res=>res.json());
     // return this.http.get('http://127.0.0.1:8000/api/posts').map(res=>res.json());
+  }
+  nearbypost(data)
+  {
+     var info = JSON.stringify(data);  
+     return this.http.post('http://192.241.140.65/api/postwithin',info, this.options).map(res=>res.json());    
   }
   addPosts(data) 
   {
      var info = JSON.stringify(data);
-     return this.http.post('http://159.203.187.1/api/addpost',info, this.options).map(res=>res.json());  
+     return this.http.post('http://192.241.140.65/api/addpost',info, this.options).map(res=>res.json());  
      // return this.http.post('http://127.0.0.1:8000/api/addpost',info, this.options).map(res=>res.json());  
   }
 }

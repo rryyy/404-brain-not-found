@@ -25,7 +25,7 @@ export class AnalyticsProvider {
   }
     showData() 
   {
-  	return this.http.get('http://159.203.187.1/api/analytics').map(res=>res.json());
+  	return this.http.get('http://192.241.140.65/api/analytics').map(res=>res.json());
     // return this.http.get('http://127.0.0.1:8000/api/analytics').map(res=>res.json());
   }
 

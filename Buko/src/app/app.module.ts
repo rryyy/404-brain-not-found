@@ -1,4 +1,4 @@
-  import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -19,6 +19,9 @@ import { WritecommentPage } from '../pages/writecomment/writecomment';
 import { AboutappPage } from '../pages/aboutapp/aboutapp';
 import { MapsPage } from '../pages/maps/maps';
 import { BlankPage } from '../pages/blank/blank';
+import { RespondentsPage } from '../pages/respondents/respondents';
+import { FeedbackSortPage } from '../pages/feedback-sort/feedback-sort';
+import { FeedbacknegaPage } from '../pages/feedbacknega/feedbacknega';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,13 +32,18 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { IonicStorageModule } from '@ionic/storage';
 import { Network } from '@ionic-native/network';
+import { Facebook } from '@ionic-native/facebook';
+import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
+ import { Camera } from '@ionic-native/camera';
+ import { Base64 } from '@ionic-native/base64';
 
 import { SigninProvider } from '../providers/signin/signin';
 import { SignupProvider } from '../providers/signup/signup';
 import { PostsProvider } from '../providers/posts/posts';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { CommentProvider } from '../providers/comment/comment';
-import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
+
+import { MomentPipe } from '../pipes/moment/moment';
 
 @NgModule({
   declarations: [
@@ -54,7 +62,11 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
     WritecommentPage,
     AboutappPage,
     MapsPage,
-    BlankPage
+    BlankPage,
+    MomentPipe,
+    RespondentsPage,
+    FeedbackSortPage,
+    FeedbacknegaPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +92,10 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
     WritecommentPage,
     AboutappPage,
     MapsPage,
-    BlankPage
+    BlankPage,
+    RespondentsPage,
+    FeedbackSortPage,
+    FeedbacknegaPage
   ],
   providers: [
     StatusBar,
@@ -88,6 +103,7 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
     Geolocation,
     NativeGeocoder,
     Network,
+    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SigninProvider,
     SignupProvider,
@@ -95,6 +111,8 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
     AnalyticsProvider,
     CommentProvider,
     ConnectivityServiceProvider,
+    Camera,
+    Base64
   ]
 })
 export class AppModule {}

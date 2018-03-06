@@ -10,6 +10,8 @@ import { CommentPage } from '../comment/comment';
 import { Storage } from '@ionic/storage';
 import { PostsProvider } from '../../providers/posts/posts';
 
+import { postsLocation } from '../export'; 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -19,6 +21,7 @@ export class HomePage {
 	x: number; y: number
 	thoroughfare: any; locality: any
   subAdministrativeArea: any; posts: any
+  postlocality: any; postsubAdmin: any;
   loadfirst: any;
   constructor (
   	public navCtrl: NavController, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder,
@@ -76,14 +79,26 @@ export class HomePage {
       .showPosts()
       .subscribe(posts => {
         this.posts = posts;
-        console.log(this.posts);
+        // console.log(this.posts);
       })
     // console.log(this.log)
   }
-   NearbyPosts() {
+  postlocation = new postsLocation();
+  NearbyPosts() {
+     this.storage.get("locality").then((val) => {
+         this.postlocality = val;
+     })
+     this.postlocation.location = this.postlocality;
+    console.log(this.postlocation.location);
+     let alert = this.alertCtrl.create({
+       title: 'Location',
+       subTitle: this.postlocation.location,  
+       buttons: ['OK']
+     });
+     alert.present();
     this.loadfirst = "nearby";
     this.PostsProvider
-      .showPosts()
+      .nearbypost(this.postlocation.location)
       .subscribe(posts => {
         this.posts = posts;
         console.log(this.posts);
@@ -103,5 +118,13 @@ export class HomePage {
     else if(e.direction == '4'){
       this.NearbyPosts();
     }
+  }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 1000);
   }
 }

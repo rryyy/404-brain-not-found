@@ -26,13 +26,13 @@ export class CommentProvider {
   showComment(data) 
   {
     var info = JSON.stringify(data);
-  	return this.http.post('http://159.203.187.1/api/comment',info, this.options).map(res=>res.json());
+  	return this.http.post('http://192.241.140.65/api/comment',info, this.options).map(res=>res.json());
     // return this.http.post('http://127.0.0.1:8000/api/comment',info, this.options).map(res=>res.json());
   }
   addComment(data)
   {
     var info = JSON.stringify(data);
-    return this.http.post('http://159.203.187.1/api/addcomment',info, this.options).map(res=>res.json()); 
+    return this.http.post('http://192.241.140.65/api/addcomment',info, this.options).map(res=>res.json()); 
     // return this.http.post('http://127.0.0.1:8000/api/addcomment',info, this.options).map(res=>res.json());    
   }
 }

@@ -10,7 +10,7 @@
 		<div class="header">
 			<img class="emblem_image" src="assets/imgs/buko_logo_fff.png">
 		</div>
-			<form (ngSubmit)="SignIn()">
+			<form (ngSubmit)="SignIn();">
 				<ion-list>
 					  <ion-item>
 					    	<ion-label floating>Username</ion-label>
@@ -24,6 +24,7 @@
 						<button ion-button color="BuKo" type="submit" class="center" full round>Sign In</button>
 			</form>
 						<button ion-button class="center" color="BuKo" (click)="SignupPage();" full round>Sign Up</button>
+						<button ion-button class="center" color="BuKo" (click)="facebookLogin();" full round>Facebook</button>
 					<ion-grid>
 						<ion-col>
 								<hr>
